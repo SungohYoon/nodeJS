@@ -40,8 +40,9 @@ export default {
       alert(value)
     },
     childHandler() {
-      this.$refs.child.content = '부모가 보내는 데이터'
-      this.$refs.child.plusCount()
+      // this.$refs.child.content = '부모가 보내는 데이터'
+      // this.$refs.child.plusCount()
+      this.$refs.child.$refs.cBtn.click()
     },
   },
 }

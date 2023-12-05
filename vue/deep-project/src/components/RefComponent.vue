@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="content" />
+    <input type="text" v-model.number="content" />
     <p>{{ content }}</p>
     <button ref="cBtn" @click="plusCount">더하기</button>
   </div>

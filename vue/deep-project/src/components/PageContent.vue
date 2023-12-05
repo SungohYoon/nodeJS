@@ -1,6 +1,11 @@
 <template>
   <table>
     <tr>
+      {{
+        $dateFormat('2023/12/05', 'yyyy-MM-dd')
+      }}
+    </tr>
+    <tr>
       <th>제목</th>
       <td>{{ title }}</td>
       <th>조회수</th>
@@ -22,8 +27,10 @@
   </table>
 </template>
 <script>
+import AppMixin from '../mixin.js';
 export default {
   //props: ['title', 'count', 'writer', 'regdate', 'content'],
+  mixins: [AppMixin],
   props: {
     title: String,
     count: {
@@ -33,35 +40,35 @@ export default {
     writer: {
       type: [String, Object],
       default: function () {
-        return { first: 'Adward', second: 'Yoon' }
+        return { first: 'Adward', second: 'Yoon' };
       },
     },
     regdate: {
       required: true,
       validator: function (value) {
         // yyyy-MM-dd
-        let format = /[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
-        return !(value.match(format) == null)
+        let format = /[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/;
+        return !(value.match(format) == null);
       },
     },
     content: String,
   },
   computed: {
     readInfo() {
-      return this.count + 1
+      return this.count + 1;
     },
   },
   methods: {
     updateInfo() {
       // 이벤트 전달 방식.
-      this.$emit('update-info', this.readInfo)
+      this.$emit('update-info', this.readInfo);
     },
   },
   watch: {
     // 데이터 전달 방식.
     readInfo() {
-      this.$emit('update-info', this.readInfo)
+      this.$emit('update-info', this.readInfo);
     },
   },
-}
+};
 </script>
