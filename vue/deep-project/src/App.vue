@@ -8,7 +8,7 @@
 import PropsCom from './components/PropsComponent.vue';
 import SlotCom from './components/TestModal.vue';
 import Composition from './components/CompositionInterface.vue';
-import StoreCom from './components/ScoreComponent.vue';
+import StoreCom from './components/StoreComponent.vue';
 
 export default {
   name: 'app',
